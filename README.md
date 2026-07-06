@@ -24,52 +24,7 @@
 - **D3.js** for the transaction graph visualization
 - **TanStack Query**, **React Router**, **React Hook Form** + **Zod**
 
-## Getting Started (Run Locally)
 
-**Prerequisites:** [Node.js](https://nodejs.org/) 18+ and npm (or an equivalent package manager).
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/Adhyan-25/autocrypt.git
-cd autocrypt
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the dev server
-npm run dev
-```
-
-The app will be running at **http://localhost:8080**.
-
-### Other useful scripts
-
-| Command           | Description                              |
-|--------------------|------------------------------------------|
-| `npm run dev`       | Start the local development server       |
-| `npm run build`     | Build an optimized production bundle to `dist/` |
-| `npm run preview`   | Preview the production build locally     |
-| `npm run lint`      | Run ESLint over the project              |
-
-## Try It Out
-
-Once it's running, search for any of these to see it in action:
-
-- `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` — Satoshi's genesis address
-- `bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh` — a modern SegWit (bech32) address
-- Any 64-character transaction hash from a [block explorer](https://www.blockchain.com/explorer)
-
-## Deploying to GitHub Pages
-
-This repo ships with a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys the site to GitHub Pages on every push to `main`. To turn it on:
-
-1. Push this repo to GitHub (if you haven't already).
-2. Go to **Settings → Pages** in your GitHub repo.
-3. Under **Build and deployment → Source**, select **GitHub Actions**.
-4. Push to `main` (or re-run the workflow from the **Actions** tab) — the site will build and deploy automatically.
-5. Your live URL will be `https://<your-username>.github.io/autocrypt/`.
-
-You can watch the deployment progress under the **Actions** tab of your repository.
 
 ## Project Structure
 
