@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: mode === "production" ? "/autocrypt/" : "/",
+  base: mode === "production" ? "/Autocryp/" : "/",
   plugins: [react()],
   resolve: {
     alias: {
