@@ -1,57 +1,54 @@
 # AutoCrypt
 
-**AutoCrypt** is a Bitcoin blockchain forensics tool that lets you trace the flow of funds across the network. Enter any Bitcoin address or transaction ID and AutoCrypt fetches the on-chain data live, then renders it as an interactive force-directed graph — so you can visually follow money as it moves between wallets, and click any node to keep tracing further down the chain.
+> **Release status: incomplete source snapshot.** The current `main` branch does not contain the `src/` application tree or the `src/main.tsx` entry point referenced by `index.html`. As checked in, the project is not buildable or ready for deployment. Restore the application source before treating the features below as a runnable release.
 
-🔗 **Live demo:** _add your GitHub Pages link here once deployed (see below)_
+**AutoCrypt** is intended to be a Bitcoin blockchain forensics tool for tracing the flow of funds across the network. The planned experience lets users enter a Bitcoin address or transaction ID and explore transaction flow in an interactive graph.
 
 ![Stack](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
-![Stack](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Stack](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
-![Stack](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+![Stack](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Stack](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
+![Stack](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss)
 
-## Features
+## Intended features
 
-- 🔍 **Address & transaction lookup** — search by a Bitcoin address or a raw 64-character transaction hash
-- 🕸️ **Interactive transaction graph** — a D3-powered force-directed graph showing inputs, outputs, and value flow between addresses
-- 🖱️ **Click-to-trace** — click any node in the graph to jump to that address and continue tracing the fund flow
-- 📊 **Transaction details panel** — a readable breakdown of inputs/outputs and BTC values for the selected address or transaction
-- ⚡ **Live blockchain data** — pulled directly from the [blockchain.info](https://www.blockchain.com/explorer/api) public API, no backend required
+- Address and transaction lookup
+- Interactive D3-powered transaction graph
+- Click-to-trace address exploration
+- Transaction details for inputs, outputs, and BTC values
+- Live blockchain data via the public Blockchain.com API
 
-## Tech Stack
+These features are documented as the project goal; they have not been verified against the incomplete source snapshot currently committed to `main`.
 
-- **React 18** + **TypeScript** + **Vite**
-- **Tailwind CSS** + **shadcn/ui** components
-- **D3.js** for the transaction graph visualization
-- **TanStack Query**, **React Router**, **React Hook Form** + **Zod**
+## Intended tech stack
 
+- React 18, TypeScript, Vite
+- Tailwind CSS and shadcn/ui
+- D3.js for transaction graph visualization
+- TanStack Query, React Router, React Hook Form, and Zod
 
+## Run locally
 
-## Project Structure
+After restoring the missing `src/` application files:
 
-```
-src/
-├── api/            # Blockchain.info API client, data parsing & validation
-├── components/      # Header, Footer, AddressSearch, TransactionGraph, TransactionDetails
-├── components/ui/   # shadcn/ui primitives (buttons, inputs, dialogs, etc.)
-├── pages/           # Route-level pages (Home, About, 404)
-├── hooks/           # Shared React hooks
-└── lib/             # Utility functions
+```bash
+npm ci
+npm run dev
 ```
 
-## How It Works
+To verify a production build:
 
-1. You enter a Bitcoin address or transaction hash.
-2. The input is validated and classified as either an address or a transaction (`src/api/bitcoinAPI.ts`).
-3. AutoCrypt fetches the corresponding raw data from the blockchain.info API.
-4. The response is parsed into a normalized set of inputs/outputs, then converted into a graph structure (`nodes` + `links`) representing the flow of BTC.
-5. D3.js renders the graph as an interactive, force-directed layout inside `TransactionGraph.tsx`.
-6. Clicking any node re-runs the trace starting from that address, so you can follow the money as far as you like.
+```bash
+npm run build
+npm run lint
+```
+
+The project uses Vite. The CI workflow runs the Vite build and lint commands; the checks will remain unsuccessful until the missing application source is restored.
 
 ## Notes
 
-- This project relies on the free, public blockchain.info API, which is rate-limited — if lookups start failing, wait a moment before retrying.
-- No API keys, environment variables, or backend server are required; everything runs client-side.
+- The intended implementation uses the free public Blockchain.com API, which may be rate-limited.
+- Do not commit credentials, environment files, generated database snapshots, or other local data.
 
 ## License
 
-This project is available for personal and educational use. Feel free to fork it and build on top of it.
+This repository currently states personal and educational use in its project history. Add a formal license file if you want to define redistribution and reuse permissions clearly.
